@@ -1,0 +1,50 @@
+/*!
+Ajax-suggest, a small jquery plugin adding google-like suggestion 
+list on input typing
+
+Version 0.1.0
+Full source at https://github.com/harvesthq/chosen
+Copyright (c) 2014 Adam Santoro http://adamsantoro.fr
+
+This plugin is released on GPL licence
+*/
+
+
+// Suggest list color style
+
+$primary: #2980b9;
+
+.ajax-suggest {
+    background: #fff;
+    border: 1px solid #e2e2e4;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 10px 0!important;
+    position: absolute;
+    z-index: 30;
+    min-width: 200px!important;
+    box-shadow: 1px 1px 3px #888;
+    overflow: auto;
+}
+
+.ajax-suggest ul {
+    margin: 0;
+    padding: 0;
+    list-style: none!important;
+}
+
+.ajax-suggest ul li {
+    line-height: 30px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #888;
+}
+
+.ajax-suggest ul li:not(.disabled):hover {
+    background: #eee;
+}
+
+.ajax-suggest ul li.active, .ajax-suggest ul li.active:hover {
+    background: $primary;
+    color: white;
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Ajax suggest jquery demo</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/github.css">
+	<link rel="stylesheet" href="assets/css/ajax-suggest-jquery.css">
+</head>
+<body>
+ 
+ 	<div class="container">
+ 		<div class="row">
+ 			<div class="col-xs-12">
+ 				<div class="jumbotron" style="margin-top: 40px;">
+ 					<div class="container">
+ 						<h1>Ajax Suggest <span class="small text-muted">a jquery plugin by Adam Santoro</span></h1>
+ 						<p>Ajax suggest is a small jquery plugin that provide a suggestion list in input elements. Really simple to use, you can (of course) use it with ajax, but also give it directly a javascript map object already existing in your scope.</p>
+ 						<p>
+ 							<a class="btn btn-primary btn-lg" href="https://github.com/AdamSGit/ajax-suggest">Github repository</a>
+ 							<a class="btn btn-primary btn-lg" href="http://adamsantoro.fr/files/ajax-suggest.zip">Download plugin v0.1.0</a>
+ 						</p>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<div class="col-xs-12">
+	 			<h2 class="page-header">
+	 				Examples
+	 			</h2>
+
+	 			<div class="panel">
+ 					<header class="panel-heading"><h4>Example 1 : With ajax (countries.json)</h4></header>
+ 					<div class="panel-body">
+ 						<form action="" method="POST" class="form-horizontal" role="form">
+ 							<div class="form-group">
+								<div class="col-sm-10">
+									<input type="text" name="example1" id="example1" class="form-control" placeholder="Enter a country, please">
+								</div>
+								<div class="col-sm-2">
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							</div>
+ 						</form>
+
+						<pre><code class="javascript">(function() {
+
+	$('#example1').ajaxSuggest({ url: '/some-path/controller_example.php' });
+
+})();</code></pre>
+
+						<pre><code class="html">&lt;!-- The same directly with html markup --&gt;
+
+&lt;input type="text" name="example1" class="form-control" data-ajax-suggest-input data-url="/some-path/controller_example.php"&gt;</code></pre>
+
+ 					</div>
+ 				</div>
+
+				<div class="panel">
+ 					<header class="panel-heading"><h4>Example 2 : With scope object</h4></header>
+ 					<div class="panel-body">
+ 						<form action="" method="POST" class="form-horizontal" role="form">
+ 							<div class="form-group">
+								<div class="col-sm-10">
+									<input type="text" name="example2" id="example2" class="form-control" placeholder="Enter a day of the week">
+								</div>
+								<div class="col-sm-2">
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							</div>
+ 						</form>
+ 							<pre><code class="javascript">// Please note that you can't use data-* html markup to initialise the input with scope object.
+
+(function() {
+
+	var days = [
+		{ name: 'Monday', memo: 'Oh god, not monday' },
+		{ name: 'Tuesday', memo: 'Yesterday was bad' },
+		{ name: 'Wednesday', memo: 'Alright, almost the middle of the week' },
+		{ name: 'Thursday', memo: 'Yay, friday is tomorrow !' },
+		{ name: 'Friday', memo: 'Yaay, tonight is the night' },
+		{ name: 'Saturday', memo: 'Ouch, my head' },
+		{ name: 'Sunday', memo: 'Oh no, monday is tomorrow' },
+	];
+
+	$('#example2').ajaxSuggest({ arr: days, field: 'name' });
+
+})();</code></pre>
+ 					</div>
+ 				</div>
+
+ 			</div>
+ 			<div class="col-xs-12">
+	 			<h2 class="page-header">
+	 				How to use
+	 			</h2>
+ 			</div>
+ 			<div class="col-xs-12">
+
+ 				<div class="panel">
+ 					<header class="panel-heading"><h4>1. How it work</h4></header>
+ 					<div class="panel-body">
+ 						<p>This plugin allow a text input element to display a suggestion list (like google search, for example) which evolve gradually when the user type his request.</p>
+ 						<p>This plugin can work in two distinct ways :</p>
+ 						<ul>
+ 							<li>
+ 								<h4>With ajax</h4>
+ 								<p>You give a url to the plugin during initialization. This URL points to a server-side handler (sample php handler in the demo files). This handler must retrieve data from a file or a database, browse the data to filter the related results and return them as JSON object. With this method, the research through the datas must be done by the server-side handler.</p>
+ 							</li>
+ 							<li>
+ 								<h4>With scope object</h4>
+ 								<p>What if the data you want to search through is in a javascript array of objects, already in your scope ? You can pass this object directly during initialisation as well. (Please note that if you pass both an url and a scope object, the scope object will have the priority). With this method, the research through the datas is done by the plugin directly.</p>
+ 							</li>
+ 						</ul>
+ 					</div>
+ 				</div>
+
+				<div class="panel">
+ 					<header class="panel-heading"><h4>2. Include the files</h4></header>
+ 					<div class="panel-body">
+ 						<p>Before using this plugin, you have to include the files. Copy and adapt the following code :</p>
+ 						<pre><code class="html">&lt;!-- Include the css in the &lt;head&gt; tag --&gt;
+
+&lt;link rel="stylesheet" href="assets/css/ajax-suggest-jquery.css"&gt;
+
+&lt;!-- And the javascript at the end of the body --&gt;
+
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="ajax-suggest.jquery.js"&gt;&lt;/script&gt;
+
+ 						</code></pre>
+ 					</div>
+ 				</div>
+
+ 				<div class="panel">
+ 					<header class="panel-heading"><h4>3. Use the plugin</h4></header>
+ 					<div class="panel-body">
+ 						<p>Please refer to examples code to find out the 3 ways to use this plugin</p>
+ 					</div>
+ 				</div>
+
+ 				<div class="panel">
+ 					<header class="panel-heading"><h4>4. Arguments</h4></header>
+ 					<div class="panel-body">
+ 						<p>You can customize the plugin with some arguments described as follow :</p>
+ 						<ul>
+ 							<li>
+ 								<p><b>url</b> : With ajax method, this argument is required and must point to your server-side handler</p>
+ 								<p><i>Default :</i> null</p>
+ 								<pre><code class="javascript">$('#myInput').ajaxSuggest({ url: '/my/path/controller_example.php' });</code></pre>
+							</li>
+							<li>
+ 								<p><b>arr</b> : When using scope object method, pass it with this argument</p>
+ 								<p><i>Default :</i> null</p>
+ 								<pre><code class="javascript">// Please see #example2</code></pre>
+ 							</li>
+ 							<li>
+ 								<p><b>field</b> : The objects key name used to search through and display results</p>
+ 								<p><i>Default :</i> 'value'</p>
+ 								<pre><code class="javascript">$('#myInput').ajaxSuggest({ field: 'name' });</code></pre>
+ 							</li>
+ 							<li>
+ 								<p><b>delay</b> : In milliseconds. The requests are sent after keystroke when no key was hit the time of this delay</p>
+ 								<p><i>Default :</i> 400</p>
+ 								<pre><code class="javascript">$('#myInput').ajaxSuggest({ delay: 1000 });</code></pre>
+ 							</li>
+ 							<li>
+ 								<p><b>minLength</b> : Minimum input length for the requests to be sent. Before this length, nothing will happend.</p>
+ 								<p><i>Default :</i> 3</p>
+ 								<pre><code class="javascript">$('#myInput').ajaxSuggest({ minLength: 3 });</code></pre>
+ 							</li>
+ 							<li>
+ 								<p><b>noResult</b> : Text displayed in list when no results are matching</p>
+ 								<p><i>Default :</i> 'No result found'</p>
+ 								<pre><code class="javascript">$('#myInput').ajaxSuggest({ noResult: 'Oh snap ! Try something else' });</code></pre>
+ 							</li>
+ 						</ul>
+ 					</div>
+ 				</div>
+
+ 			</div>
+
+ 			<div class="col-xs-12">
+	 			<h2 class="page-header">
+	 				License
+	 			</h2>
+	 			<p>This plugin is on GPL license. For futher information, please refer to the license file in the plugin directory</p>
+	 			<p>If you modify this plugin, you want to add controllers example for others server-side langages or anything else, you can contact me on my website contact form or in github wwith pull requests.</p>
+ 			</div>
+
+ 		</div>
+ 	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified Js -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/highlight.pack.js"></script>
+	<script src="assets/js/ajax-suggest.jquery.js"></script>
+
+	<script>
+
+		'use strict';
+
+		(function() {
+
+			hljs.initHighlightingOnLoad();
+
+			var days = [
+				{ name: 'Monday', memo: 'Oh god, not monday' },
+				{ name: 'Tuesday', memo: 'Yesterday was bad' },
+				{ name: 'Wednesday', memo: 'Alright, almost the middle of the week' },
+				{ name: 'Thursday', memo: 'Yay, friday is tomorrow !' },
+				{ name: 'Friday', memo: 'Yaay, tonight is the night' },
+				{ name: 'Saturday', memo: 'Ouch, my head' },
+				{ name: 'Sunday', memo: 'Oh no, monday is tomorrow' },
+			];
+
+			$('form').on('submit', function() {
+				return false;
+			});
+
+			$('#example1').ajaxSuggest({ url: '/ajax-suggest-jquery/demo/controller_example.php', field: 'name' });
+
+			$('#example2').ajaxSuggest({ arr: days, field: 'name' });
+
+		})();
+
+	</script>
+
+</body>
+</html>

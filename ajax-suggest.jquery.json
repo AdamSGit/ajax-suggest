@@ -1,0 +1,27 @@
+{
+	"name": "ajax-suggest-jquery",
+	"title": "Ajax suggest",
+	"description": "Ajax suggest is a small jquery plugin that provide a suggestion list in input elements. Really simple to use, you can (of course) use it with ajax, but also give it directly a javascript map object already existing in your scope",
+	"keywords": [
+		"ajax",
+		"autocompletion",		
+		"jQuery"	
+	],
+	"version": "0.1.0",
+	"author": {
+		"name": "Adam Santoro",
+		"url" : "http://adamsantoro.fr"
+	},
+	"licenses": [
+		{
+			"type": "GPL",			
+		}
+	],
+	"homepage": "http://adamsantoro.fr/projects/ajax-suggest-jquery/demo/",
+	"docs": "http://adamsantoro.fr/projects/ajax-suggest-jquery/demo/",
+	"demo" : "http://adamsantoro.fr/projects/ajax-suggest-jquery/demo/",
+	"download": "http://adamsantoro.fr/projects/ajax-suggest-jquery/demo/",
+	"dependencies": {
+		"jquery": ">=1.6"
+	}
+}

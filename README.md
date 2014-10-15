@@ -16,7 +16,7 @@ You give a url to the plugin during initialization. This URL points to a server-
 
 What if the data you want to search through is in a javascript array of objects, already in your scope ? You can pass this object directly during initialisation as well. (Please note that if you pass both an url and a scope object, the scope object will have the priority). With this method, the research through the datas is done by the plugin directly.
 
-Demo, doc and download: http://adamsantoro.fr/projects/ajax-suggest
+Demo, doc and download: http://adamsantoro.fr/projects/ajax-suggest/demo
 
 Copyright (c) 2014 Adam Santoro (http://adamsantoro.fr)
 Licensed under the GPL license. (http://www.opensource.org/licenses/gpl-license.php)
